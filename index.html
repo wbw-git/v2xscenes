@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+    <!-- Replace the content tag with appropriate information -->
+    <meta name="description" content="DESCRIPTION META TAG">
+    <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+    <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+    <meta property="og:url" content="URL OF THE WEBSITE"/>
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+    <meta property="og:image" content="static/image/your_banner_image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+
+
+    <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+    <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+    <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+    <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Keywords for your paper to be indexed by-->
+    <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>V2XScenes: A Multiple Challenging Condition Dataset for Large-Range
+    Vehicle-Infrastructure Collaborative Perception</title>
+    <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bulma.min.css">
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/index.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+<style>
+    .image-container {
+        display: flex;
+        justify-content: center; /* 水平居中 */
+        align-items: center;     /* 垂直居中 */
+        flex-direction: column;  /* 让图片垂直排列，若需要水平排列可去除此行 */
+    }
+    
+    .image-container img {
+        width: 550px; /* 或者其他尺寸 */
+        height: auto;
+        margin: 10px 0; /* 图片间距 */
+    }
+</style>
+
+
+
+<section class="hero" >
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-2 publication-title"> V2XScenes: A Multiple Challenging Condition Dataset for Large-Range Vehicle-Infrastructure Collaborative Perception
+                    </h1>  
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><a href="https://scholar.google.com/citations?user=PK-ODQoAAAAJ&hl=en" target="_blank">Bowen Wang</a><sup>1</sup>,</span>
+                            <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&user=Q3ijLUoAAAAJ" target="_blank">Yafei Wang</a><sup>1</sup>,</span>
+                            <span class="author-block">Wei Gong</a><sup>1</sup>,</span>
+                            <span class="author-block"><a href="https://scholar.google.com/citations?hl=en&user=W_Q33RMAAAAJ" target="_blank">Siheng Chen</a><sup>1,3</sup>,</span>
+                            <span class="author-block">Zexing Li</a><sup>1,2</sup>,</span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">Minhao Xiong</a><sup>1</sup>,</span>
+                            <span class="author-block">Chin Long Ng</a><sup>1</sup>,</span>
+                            <span class="author-block">ATong Luo</a><sup>1</sup></span>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
+                            <span class="author-block"><sup>2</sup>Shanghai Lingang Group,</span>
+                            <span class="author-block"><sup>3</sup>Shanghai AI Lab</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <div class="item">
+                <!-- &nbsp; -->
+                <img src="static/images/fig.6.png" alt="infrastructure_sensors" />
+                <!-- <h2 class="subtitle has-text-centered">
+                    Demonstration of proposed V2XScenes.
+                </h2> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section hero is-light">
+    <div class="container is-max-desktop">
+        <div class="columns">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Overview</h2>
+                <div class="content">
+                    <strong>V2XScenes</strong> is the first high-quality real-world <strong>multiple challenging condition dataset</strong> 
+                    under large-range road section for large-range V2X cooperative perception.<br>
+                    <ul>
+                        <li>Data simultaneously collected by <strong>26 roadside sensors</strong> and <strong>9 onboard sensors</strong>.</li>
+                        <li>The sequential data with different scenes of <strong>complex traffic condition, diverse weather</strong> are well-organized with specific scene-descriptive labels.</li>
+                        <li>5 type sensors of <strong>mechanical LiDAR, Solid-state LiDAR, blind repair LiDAR, 4D Radar and Camera</strong>.</li> 
+                        <li>Global sequential 3D bounding boxes and trajectories with <strong>unique tracking IDs</strong> for the same targets <strong>under the range of 500m</strong> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" >
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <p>
+                        Whether autonomous driving can effectively handle challenging scenarios such as bad weather and complex traffic
+                        environments is still in doubt. One of the critical difficulty is that the single-agent perception is hard to obtain the
+                        complementary perceptual information around the multi-condition scenes, such as meeting occlusion. To investigate the
+                        advantages of collaborative perception in high-risky driving scenarios, we constructed a multiple challenging condition
+                        dataset for large-range vehicle-Infrastructure cooperative perception, called <b>V2XScenes</b>, which include seven typical
+                        multi-modal sensor layouts at successive road section. Particularly, each selected scene is labeled with specific
+                        condition description, and we provide the unique global object tracking numbers across the entire road section and
+                        sequential frames to ensure consistency. Comprehensive cooperative perception benchmarks of 3D object detection and
+                        tracking are provided, the quantitative results based on the state-of-the-art demonstrate the effectiveness of
+                        collaborative perception facing corner condition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" >
+    <div class="container is-max-desktop">
+        <h3 class="title is-8 has-text-centered">Sensor Layouts of V2XScenes</h3>
+        <div class="hero-body">
+            <div class="item">
+                <!-- &nbsp; -->
+                <img src="static/images/sub.1.png" alt="infrastructure_sensors" />
+                <h2 class="subtitle has-text-centered">
+                    Detailed sensor layouts for both roadside and vehicle side view in V2XScenes.
+                </h2>
+                &nbsp;
+                <img src="static/images/sub.2.png" alt="infrastructure_sensors" />
+                <!-- <h2 class="subtitle has-text-centered">
+                    Specific index for roadside and vehicle-side sensors.
+                </h2> -->
+            </div>
+            <div class="item">
+                <div class="image-container">
+                    <img src="static/images/sub.4.png" alt="infrastructure_sensors" />
+                </div>
+                <h2 class="subtitle has-text-centered">
+                    Mounting position of the corresponding roadside sensors with specific index.
+                </h2>
+            </div>
+        </div>
+</section>
+
+<section class="section" >
+    <div class="container is-max-desktop">
+        <h3 class="title is-8 has-text-centered">Calibration</h3>
+        <div class="hero-body">
+            <div class="item">
+                <img src="static/images/fig.1.png" alt="infrastructure_sensors" />
+                <h2 class="subtitle has-text-centered">
+                    The calibration relationships among the sensors in V2XScenes.
+                </h2>
+                &nbsp;
+                <img src="static/images/veh_to_roadRTK.gif" alt="infrastructure_sensors" />
+                <img src="static/images/veh_to_roadRTK2.gif" alt="infrastructure_sensors" />  
+                <img src="static/images/veh_to_roadRTK3.gif" alt="infrastructure_sensors" />               
+                <h2 class="subtitle has-text-centered">
+                    Illustrations of fused point cloud for both roadside and vehicle-side view.
+                    The <span style="color: gray; font-weight: bold;">gray</span> points and 
+                    <span style="color: rgb(2, 2, 69); font-weight: bold;">blue</span> points represent the roadside and vehicle-side LiDAR respectively. 
+                    The <span style="color: darkred; font-weight: bold;">red</span> points are denoted as the roadside 4D Radar.
+                </h2>
+            </div>
+        </div>
+        <!-- <div class="hero-body">
+            <div class="item">
+                <video id="dollyzoom" autoplay controls muted loop playsinline width="100%">
+                    <source src="./static/videos/29_check_lidar_fusion.avi">
+                </video>
+                <h2 class="subtitle has-text-centered">
+                    The calibration relationships among the sensors in V2XScenes.
+                </h2>
+            </div>
+        </div> -->
+    </div>
+</section>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="container is-max-desktop">
+    <h3 class="title is-8 has-text-centered">Multi-condition Scenarios in V2XScenes</h3>
+    <div style="display: flex; justify-content: space-between; gap: 10px; align-items: stretch;">
+        <h2 class="subtitle" style="color: orange; font-weight: bold; text-align: left; display: flex; align-items: center; height: 100%; flex: 1;">
+            <img src="static/images/rainy-day.png" alt="Rainy Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            <img src="static/images/night.png" alt="Night Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            U-turns at intersection on a heavy rainy night
+        </h2>
+        <h2 class="subtitle" style="color: orange; font-weight: bold; text-align: left; display: flex; align-items: center; height: 100%; flex: 1;">
+            <img src="static/images/sunny-day.png" alt="Rainy Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            <img src="static/images/congestion.png" alt="Night Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            Facing congestion on an sunny day
+        </h2>
+    </div>
+    <div class="container is-max-desktop">
+        <div class="item" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <!-- Image 1 -->
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240711_211321_300_1720703803_to_1720703820_17_51_66.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Roadside Camera</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240711_211321_300_1720703803_to_1720703820_17_51_front_right_camera.gif" alt="your_image3" style="width: 100%;"/>
+                <figcaption>Vehicle-side Camera</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240712_111606_300_1720754254_to_1720754265_11_35_76.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240712_111606_300_1720754254_to_1720754265_11_35_front_right_camera.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+        </div>
+        <div class="item" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <!-- Image 1 -->
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/51_check_lidar_fusion.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/51_check_vehicle_3D.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/35_check_lidar_fusion.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/35_check_vehicle_3D.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+        </div>
+    </div>
+    &nbsp;
+    <div style="display: flex; justify-content: space-between; gap: 10px; align-items: stretch;">
+        <h2 class="subtitle" style="color: orange; font-weight: bold; text-align: left; display: flex; align-items: center; height: 100%; flex: 1;">
+            <img src="static/images/cloudy.png" alt="Rainy Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            <img src="static/images/occlusion.png" alt="Night Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            Facing occlusion on a cloudy rainy day
+        </h2>
+        <h2 class="subtitle" style="color: orange; font-weight: bold; text-align: left; display: flex; align-items: center; height: 100%; flex: 1;">
+            <img src="static/images/rainy-day.png" alt="Rainy Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            <img src="static/images/night.png" alt="Night Icon" style="width: 35px; height: 35px; margin-right: 8px;">
+            U-turns at intersection on a heavy rainy night
+        </h2>
+    </div>
+    <div class="container is-max-desktop">
+        <div class="item" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <!-- Image 1 -->
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240712_111606_300_1720754431_to_1720754456_25_66_66.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Roadside Camera</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/20240712_111606_300_1720754431_to_1720754456_25_66_front_right_camera.gif" alt="your_image3" style="width: 100%;"/>
+                <figcaption>Vehicle-side Camera</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/64.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/front_right_camera.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+        </div>
+        <div class="item" style="display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+            <!-- Image 1 -->
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/66_check_lidar_fusion.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/66_check_vehicle_3D.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/29_check_lidar_fusion.gif" alt="infrastructure_sensors" style="width: 100%;"/>
+                <figcaption>Cooperative Point Cloud</figcaption>
+            </div>
+            <div style="width: 23%; text-align: center;">
+                <img src="static/images/29_check_vehicle_3D.gif" alt="your_image4" style="width: 100%;"/>
+                <figcaption>Ego-vehicle Point Cloud</figcaption>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="hero" style="margin-top: 80px;">
+        <h3 class="title is-8 has-text-centered">Cooperative 3D object detection benchmark</h3>
+        &nbsp;
+        <h2 class="subtitle has-text-centered" style="color: orange">
+            On the sequence of  <i>"Facing congestion on an sunny day"</i>
+        </h2>
+        <div class="container is-centered">
+            <table class="table is-centered center">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>AP@IoU=0.3</th>
+                        <th>AP@IoU=0.5</th>
+                        <th>AP@IoU=0.7</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Late Fusion</td>
+                        <td style="text-align: center;">84.52</td>
+                        <td style="text-align: center;">71.79</td>
+                        <td style="text-align: center;">42.50</td>
+                    </tr>
+                    <tr>
+                        <td>Early Fusion</td>
+                        <td style="text-align: center;">90.13</td>
+                        <td style="text-align: center;">88.03</td>
+                        <td style="text-align: center;">72.92</td>
+                    </tr>
+                    <tr>
+                        <td>AttuFuse</td>
+                        <td style="text-align: center;">88.56</td>
+                        <td style="text-align: center;">81.99</td>
+                        <td style="text-align: center;">64.74</td>
+                    </tr>
+                    <tr>
+                        <td>F-Cooper</td>
+                        <td style="text-align: center;">78.29</td>
+                        <td style="text-align: center;">59.40</td>
+                        <td style="text-align: center;">41.24</td>
+                    </tr>
+                    <tr>
+                        <td>V2XVIT</td>
+                        <td style="text-align: center;">89.90</td>
+                        <td style="text-align: center;">88.05</td>
+                        <td style="text-align: center;">81.30</td>
+                    </tr>
+                    <tr>
+                        <td>CoBEVT</td>
+                        <td style="text-align: center;">88.42</td>
+                        <td style="text-align: center;">81.27</td>
+                        <td style="text-align: center;">52.24</td>
+                    </tr>
+                    <tr>
+                        <td>Where2Comm</td>
+                        <td style="text-align: center;">88.18</td>
+                        <td style="text-align: center;">72.38</td>
+                        <td style="text-align: center;">40.35</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5 class="is-3 has-text-centered"></h5>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero">
+    <div class="hero">
+        <h3 class="title is-8 has-text-centered">Cooperative Tracking benchmark</h3>
+        &nbsp;
+        <h2 class="subtitle has-text-centered" style="color: orange">
+            On the sequence of  <i>"Facing congestion on an sunny day"</i>
+        </h2>
+        <div class="container is-centered">
+            <table class="table is-centered center">
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>sMOTA ↑</th>
+                        <th>MOTA ↑</th>
+                        <th>MOTP ↑</th>
+                        <th>MT ↑</th>
+                        <th>ML ↓</th>
+                        <th>F1 ↑</th>
+                        <th>Prec. ↑</th>
+                        <th>Recall ↑</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Late Fusion</td>
+                        <td style="text-align: center;">0.6787</td>
+                        <td style="text-align: center;">0.5599</td>
+                        <td style="text-align: center;">0.6659</td>
+                        <td style="text-align: center;">0.5417</td>
+                        <td style="text-align: center;">0.0833</td>
+                        <td style="text-align: center;">0.8919</td>
+                        <td style="text-align: center;">0.9803</td>
+                        <td style="text-align: center;">0.8181</td>
+                    </tr>
+                    <tr>
+                        <td>Early Fusion</td>
+                        <td style="text-align: center;">0.8671</td>
+                        <td style="text-align: center;">0.6119</td>
+                        <td style="text-align: center;">0.7792</td>
+                        <td style="text-align: center;">0.6128</td>
+                        <td style="text-align: center;">0.2553</td>
+                        <td style="text-align: center;">0.9160</td>
+                        <td style="text-align: center;">0.9894</td>
+                        <td style="text-align: center;">0.8527</td>
+                    </tr>
+                    <tr>
+                        <td>AttuFuse</td>
+                        <td style="text-align: center;">0.7129</td>
+                        <td style="text-align: center;">0.5881</td>
+                        <td style="text-align: center;">0.7284</td>
+                        <td style="text-align: center;">0.6383</td>
+                        <td style="text-align: center;">0.0638</td>
+                        <td style="text-align: center;">0.9025</td>
+                        <td style="text-align: center;">0.9957</td>
+                        <td style="text-align: center;">0.8252</td>
+                    </tr>
+                    <tr>
+                        <td>F-Cooper</td>
+                        <td style="text-align: center;">0.6538</td>
+                        <td style="text-align: center;">0.5557</td>
+                        <td style="text-align: center;">0.6577</td>
+                        <td style="text-align: center;">0.7674</td>
+                        <td style="text-align: center;">0.1852</td>
+                        <td style="text-align: center;">0.9016</td>
+                        <td style="text-align: center;">0.9654</td>
+                        <td style="text-align: center;">0.8457</td>
+                    </tr>
+                    <tr>
+                        <td>V2XVIT</td>
+                        <td style="text-align: center;">0.7024</td>
+                        <td style="text-align: center;">0.5970</td>
+                        <td style="text-align: center;">0.7838</td>
+                        <td style="text-align: center;">0.6170</td>
+                        <td style="text-align: center;">0.0851</td>
+                        <td style="text-align: center;">0.9094</td>
+                        <td style="text-align: center;">0.9996</td>
+                        <td style="text-align: center;">0.8341</td>
+                    </tr>
+                    <tr>
+                        <td>CoBEVT</td>
+                        <td style="text-align: center;">0.6983</td>
+                        <td style="text-align: center;">0.5761</td>
+                        <td style="text-align: center;">0.6348</td>
+                        <td style="text-align: center;">0.5652</td>
+                        <td style="text-align: center;">0.0000</td>
+                        <td style="text-align: center;">0.9002</td>
+                        <td style="text-align: center;">0.9903</td>
+                        <td style="text-align: center;">0.8250</td>
+                    </tr>
+                    <tr>
+                        <td>Where2Comm</td>
+                        <td style="text-align: center;">0.7720</td>
+                        <td style="text-align: center;">0.4632</td>
+                        <td style="text-align: center;">0.6565</td>
+                        <td style="text-align: center;">0.6739</td>
+                        <td style="text-align: center;">0.0217</td>
+                        <td style="text-align: center;">0.9144</td>
+                        <td style="text-align: center;">0.9894</td>
+                        <td style="text-align: center;">0.8490</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content has-text-centered">
+                    <p>
+                        The <strong>V2XScenes</strong> Cooperative Perception Dataset is licensed under <a
+                            href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA
+                        4.0</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+<!-- End of Statcounter Code -->
+
+</body>
+
+</html>

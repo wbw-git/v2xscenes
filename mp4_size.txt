@@ -1,0 +1,5 @@
+
+查看视频大小
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=noprint_wrappers=1:nokey=1 input.mp4
+ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=noprint_wrappers=1:nokey=1 C:\Users\87307\Desktop\massv2x\static\videos\massv2x_v1.mp4
+ffmpeg -i C:\Users\87307\Desktop\massv2x\static\videos\massv2x_v1.mp4 -vf "scale=7680:2400" output.mp4
